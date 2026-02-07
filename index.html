@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day Yashika 🌹</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle, #ff7eb3, #ff758c);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.start {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+.start span {
+  font-size: 3.5rem;
+}
+
+.start p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.container {
+  display: none;
+  position: relative;
+  top: 35%;
+  transform: translateY(-50%);
+  animation: fadeIn 3s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  text-shadow: 0 0 15px #fff;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  animation: glow 2s infinite alternate;
+}
+
+p {
+  font-size: 1.3rem;
+  max-width: 650px;
+  margin: 25px auto;
+  line-height: 1.6;
+}
+
+.signature {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.heart {
+  font-size: 3rem;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #ffe6ee; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rose {
+  position: absolute;
+  top: -50px;
+  font-size: 28px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CLICK SCREEN -->
+<div class="start" onclick="openLove()">
+  <span>🌹</span>
+  <p>Click the rose, Yashika</p>
+</div>
+
+<!-- MESSAGE SCREEN -->
+<div class="container" id="love">
+  <h1>Happy Rose Day 🌹</h1>
+  <h2>Yashika</h2>
+
+  <p>
+    Some people feel like flowers in our lives—  
+    they don’t just exist, they make everything beautiful.  
+    You are that rose… rare, gentle, and unforgettable.
+  </p>
+
+  <div class="heart">❤️</div>
+
+  <div class="signature">
+    — From Shubhang 💖
+  </div>
+</div>
+
+<script>
+function openLove() {
+  document.querySelector('.start').style.display = 'none';
+  document.getElementById('love').style.display = 'block';
+}
+
+// Falling roses
+function createRose() {
+  const rose = document.createElement("div");
+  rose.classList.add("rose");
+  rose.innerHTML = "🌹";
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.animationDuration = (4 + Math.random() * 4) + "s";
+  document.body.appendChild(rose);
+
+  setTimeout(() => rose.remove(), 8000);
+}
+
+setInterval(createRose, 350);
+</script>
+
+</body>
+</html>
